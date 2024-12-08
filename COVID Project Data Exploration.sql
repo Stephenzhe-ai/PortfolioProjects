@@ -55,11 +55,10 @@ order by max (cast(total_deaths as int)) desc;
 
 --  global numbers of people infected comapred to global deaths
 
-select date, Sum(new_cases) as total_cases , sum(cast(new_deaths as int)) as totald_deaths, sum(cast(new_deaths as int)) / sum(new_cases) * 100 as deathpercentage
+select Sum(new_cases) as total_cases , sum(cast(new_deaths as int)) as totald_deaths, sum(cast(new_deaths as int)) / sum(new_cases) * 100 as deathpercentage
 from projectportfolio.dbo.CovidDeaths$
 where continent is not null
-group by date
-order by date;
+order by 1,2;
 
 -- total deaths in the world and total infected
 
